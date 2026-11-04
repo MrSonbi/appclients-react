@@ -1,3 +1,4 @@
+/* eslint-disable import-x/order */
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Navigate, Route } from 'react-router-dom';
@@ -34,6 +35,10 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Bootstrap */
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ClientsPage from './pages/ClientsPage';
+
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -42,6 +47,7 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/clientes" element={<ClientsPage />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
