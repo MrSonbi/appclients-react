@@ -11,6 +11,12 @@ export default function ClientsPage() {
         const data = await ClientsService.getClients();
         setClients(data);
     };
+    const remove = async (id: number) => {
+        const ok = confirm('¿Eliminar cliente?');
+        if (!ok) return;
+        await ClientsService.deleteClient(id);
+        loadClients();
+    };
     console.log(clients);
     useEffect(() => {
         loadClients();
@@ -36,7 +42,10 @@ export default function ClientsPage() {
                             <td>{client.name}</td>
                             <td>{client.email}</td>
                             <td>{client.phone}</td>
-                            <td>...</td>
+                            <td>
+                                <Link to={`/edit-client/${client.id}`} className="btn btn-warning me-2">Editar</Link>
+                                <button className="btn btn-danger" onClick={() => remove(client.id)}>Eliminar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
