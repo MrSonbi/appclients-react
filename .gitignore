@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 /.nx
 /.nx/cache
 /.vscode/*
@@ -38,3 +39,4 @@ yarn-error.log*
 
 # Environment
 .env
+n.env
